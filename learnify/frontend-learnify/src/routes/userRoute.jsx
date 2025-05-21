@@ -7,6 +7,7 @@ import Bookings from "../pages/dashboard/Bookings";
 import StudentBookings from "../pages/dashboard/StudentBookings";
 import AllMentors from "../pages/AllMentors";
 import MentorSessions from "../pages/MentorSessions";
+import PaymentPage from "../pages/PaymentPage";
 
 const routes = [
     {path:"/", element:<Home/>, isProtected:false},
@@ -18,6 +19,7 @@ const routes = [
     {path:"/dashboard/studentBookings", element:<StudentBookings/>, isProtected:true},
     {path:"/all-mentors", element:<AllMentors/>, isProtected:true},
     {path:"/MentorSessions", element:<MentorSessions/>, isProtected:true},
+    {path:"/paymentsPage", element:<PaymentPage/>, isProtected:true},
 ]
 
 export default routes

@@ -19,7 +19,7 @@ const getMentorByUserName = async (req, res, next) => {
 const getMentorById = async (req, res, next) => {
     const mentorId = req.params.mentorId;
     try {
-        const mentor = mentorService.getMentorById(mentorId);
+        const mentor = await mentorService.getMentorById(mentorId);
         if (!mentor) {
             return next(new ApiError(httpStatus.badRequest, "Unable to get mentor"))
         }
@@ -30,4 +30,4 @@ const getMentorById = async (req, res, next) => {
     }
 }
 
-module.exports = { getAllMentors, getMentorByUserName }
+module.exports = { getAllMentors, getMentorByUserName, getMentorById}

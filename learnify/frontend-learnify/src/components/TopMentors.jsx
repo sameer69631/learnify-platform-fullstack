@@ -4,6 +4,7 @@ import mentorApi from '../apiManager/mentorApi';
 import { Avatar, Button, Spin } from 'antd'
 import { useNavigate } from 'react-router-dom';
 import useMentorIdForSessionsStore from '../store/mentorIdForSessions';
+import useUserStore from '../store/userStore';
 
 function TopMentors() {
   const [topMentors, setTopMentors] = useState([]);
@@ -11,11 +12,14 @@ function TopMentors() {
   const { mentorsData, setMentorsData } = useMentorStore();
   const navigate = useNavigate()
   const {setMentorId} = useMentorIdForSessionsStore()
+  const {user} = useUserStore()
 
   const handelMentorLogoClick = (e, mentorId) => {
     e.preventDefault();
-    setMentorId(mentorId)
-    navigate("/MentorSessions")
+    if(user.role === "student"){
+      setMentorId(mentorId)
+      navigate("/MentorSessions")
+    }
   }
 
   const selectTopMentors = (mentors) => {

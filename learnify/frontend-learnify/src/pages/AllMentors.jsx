@@ -2,10 +2,24 @@ import React, { useEffect, useState } from 'react'
 import mentorApi from '../apiManager/mentorApi'
 import toast from 'react-hot-toast'
 import { Spin, Avatar } from 'antd'
+import useMentorIdForSessionsStore from '../store/mentorIdForSessions'
+import useUserStore from '../store/userStore'
+import { useNavigate } from 'react-router-dom'
 
 function AllMentors() {
   const [allMentors, setAllMentors] = useState([])
   const [loading, setLoading] = useState(true)
+  const {setMentorId} = useMentorIdForSessionsStore()
+  const {user} = useUserStore()
+  const navigate = useNavigate()
+
+  const handelMentorLogoClick = (e, mentorId) => {
+    e.preventDefault();
+    if(user.role === "student"){
+      setMentorId(mentorId)
+      navigate("/MentorSessions")
+    }
+  }
 
   useEffect(() => {
     const getAllMentors = async () => {
@@ -38,7 +52,7 @@ function AllMentors() {
         <div className='flex flex-wrap gap-5 mt-4'>
           {allMentors.map((mentor) => (
             <div className='text-center'>
-              <Avatar size={180} src={mentor?.photoUrl || generateProfileUrl(mentor)}/>
+              <Avatar size={180} src={mentor?.photoUrl || generateProfileUrl(mentor)} onClick={(e) => handelMentorLogoClick(e, mentor._id)}/>
               <p className='mt-2'>{mentor.name.toUpperCase()}</p>
             </div>
           ))}

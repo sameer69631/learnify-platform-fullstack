@@ -29,14 +29,19 @@ const getAllServices = async (req, res) => {
 const getServiceByMentor = async (req, res, next) => {
         const mentorId = req.params.id
         if(!mentorId){
-            return next(new ApiError(httpStatus.badRequest, "Id not found"))
+            return next(new ApiError(httpStatus.badRequest, "Mentor id not found"))
         }
         const services = await mentorServicesService.getServiceByMentor(mentorId);
         res.status(httpStatus.ok).json({message : "Mentor services fetched successfully", services})
 }
 
 const getServiceById = async (req, res) => {
-    
+    const serviceId = req.params.serviceId;
+    if(!serviceId){
+        return next(new ApiError(httpStatus.unauthorized, "Service id not found"))
+    }
+    const service = await mentorServicesService.getServiceById(serviceId);
+    res.status(httpStatus.ok).json({message : "Service fetched successfully", service})
 }
 
 module.exports = {addService, updateService, getAllServices, getServiceByMentor, getServiceById}

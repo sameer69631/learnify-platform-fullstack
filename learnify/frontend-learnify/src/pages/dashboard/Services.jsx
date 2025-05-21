@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Dashboard from './Dashboard'
-import { Modal, Form, Input, Button, Spin, Radio } from "antd"
+import { Modal, Form, Input, Button, Spin, Radio, DatePicker, TimePicker } from "antd"
 import useUserStore from '../../store/userStore'
 import serviceApi from '../../apiManager/ServiceApi'
 import toast from 'react-hot-toast'
 import ServicesCard from '../../components/ServicesCard'
+import dayjs from 'dayjs'
 
 function Services() {
     const [allServices, setAllServices] = useState([])
@@ -34,12 +35,16 @@ function Services() {
             serviceName: values.serviceName,
             description: values.description,
             duration: values.duration,
-            price: values.price,
+            price: values.price,startDate : values.startDate,
+            endDate : values.closingDate,
+            startTime : values.startTime,
+            endTime : values.endTime,
             active: values.active
         }
         setIsLoading(true)
 
         try {
+            console.log("start date is : ",serviceData.startDate)
             const response = await serviceApi.addService(serviceData);
             setAllServices((previousService) => [...previousService, response.data?.createdService]);
             setIsModalActive(false)
@@ -60,6 +65,10 @@ function Services() {
             description: values.description,
             duration: values.duration,
             price: values.price,
+            startDate : values.startDate,
+            endDate : values.closingDate,
+            startTime : values.startTime,
+            endTime : values.endTime,
             active: values.active
         }
         setIsLoading(true)
@@ -79,8 +88,11 @@ function Services() {
         }
     }
 
-    const handleEdit = (service) => {
-        setEditingService(service);
+    const handleEdit =async (service) => {
+        const response = await serviceApi.getServiceById(service._id);
+        const resService = response.data.service;
+        const newService = {...service, startDate:dayjs(resService.startDate), endDate:dayjs(resService.endDate), startTime:dayjs(resService.startTime), endTime:dayjs(resService.endTime)}
+        setEditingService(newService);
         setIsModalActive(true)
     }
 
@@ -121,6 +133,22 @@ function Services() {
 
                         <Form.Item label="Price" name={"price"} rules={[{ required: true, message: "Price is required" }]}>
                             <Input placeholder='Enter price' />
+                        </Form.Item>
+                        <Form.Item><p>Enter date in between you are free to take sessions</p></Form.Item>
+                        <Form.Item label="Start Date" name={"startDate"} rules={[{ required: true, message: "Start date is required" }]}>
+                            <DatePicker placeholder='Enter start date'/>
+                        </Form.Item>
+
+                        <Form.Item label="Closing Date" name={"closingDate"} rules={[{ required: false }]}>
+                            <DatePicker placeholder='Enter closing date'/>
+                        </Form.Item>
+                        <Form.Item><p>Enter time in between you are free to take sessions</p></Form.Item>
+                        <Form.Item label="Start Time" name={"startTime"} rules={[{ required: true, message:"Start time is required" }]}>
+                            <TimePicker placeholder='Enter start time'/>
+                        </Form.Item>
+
+                        <Form.Item label="End Time" name={"endTime"} rules={[{ required: false }]}>
+                            <TimePicker placeholder='Enter end time'/>
                         </Form.Item>
 
                         <Form.Item label="Active" name={"active"} rules={[{ required: true, message: "Active is required" }]}>

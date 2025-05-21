@@ -1,4 +1,6 @@
 const {Schema, model} = require('mongoose');
+const { type } = require('../validations/user.validations');
+const { required } = require('joi');
 
 const serviceSchema = new Schema({
     mentor : {
@@ -30,6 +32,22 @@ const serviceSchema = new Schema({
         type : Schema.Types.Boolean,
         require : true,
         default : false,
+    },
+    startDate : {
+        type : Schema.Types.Date,
+        required : true,
+    },
+    endDate : {
+        type : Schema.Types.Date,
+        required : false,
+    },
+    startTime : {
+        type : Schema.Types.Date,
+        required : true
+    },
+    endTime : {
+        type : Schema.Types.Date,
+        required : false
     }
 },{timestamps : true});
 

@@ -7,6 +7,10 @@ const addServiceValidations = Joi.object({
     duration : Joi.string().required().trim(),
     price : Joi.number().required(),
     active : Joi.boolean().required(),
+    startDate : Joi.date().required(),
+    endDate : Joi.date().optional(),
+    startTime : Joi.date().required(),
+    endTime : Joi.date().optional(),
 })
 
 const updateServiceValidations = Joi.object({
@@ -16,6 +20,10 @@ const updateServiceValidations = Joi.object({
     duration : Joi.number().required(),
     price : Joi.number().required(),
     active : Joi.boolean().required(),
+    startDate : Joi.date().required(),
+    endDate : Joi.optional(),
+    startTime : Joi.date().required(),
+    endTime : Joi.optional(),
 })
 
 

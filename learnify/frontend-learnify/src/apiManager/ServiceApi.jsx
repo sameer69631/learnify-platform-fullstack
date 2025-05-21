@@ -17,7 +17,7 @@ const getServiceByMentor = async (mentorId) => {
 }
 
 const getServiceById = async (id) => {
-    return await AxiosInstances.get(`/service/${id}`)
+    return await AxiosInstances.get("/service/"+id)
 }
 
 const serviceApi = {addService, updateService, getAllServices, getServiceByMentor, getServiceById}

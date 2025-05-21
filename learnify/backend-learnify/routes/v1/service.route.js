@@ -10,5 +10,6 @@ const router = express.Router()
 router.post("/add-service", protect, restrictTo("mentor"), validate(addServiceValidations), assyncHandler(mentorServiceController.addService))
 router.get("/get-service-by-mentor/:id", protect, assyncHandler(mentorServiceController.getServiceByMentor))
 router.put("/update-service/:id", protect, restrictTo("mentor"), validate(updateServiceValidations), assyncHandler(mentorServiceController.updateService))
+router.get("/:serviceId", protect, restrictTo("mentor"), assyncHandler(mentorServiceController.getServiceById))
 
 module.exports = router
