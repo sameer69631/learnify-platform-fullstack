@@ -4,6 +4,7 @@ const mentorRoute = require('./mentor.route')
 const userRoute = require('./user.routes')
 const serviceRoute = require('./service.route')
 const bookingRoute = require('./booking.route')
+const paymentRoute = require('./payment.route')
 
 const express = require('express')
 const router = express.Router();
@@ -32,6 +33,10 @@ const Routes = [
     {
         path : "/bookings",
         route : bookingRoute
+    },
+    {
+        path : "/payments",
+        route : paymentRoute
     }
 ]
 

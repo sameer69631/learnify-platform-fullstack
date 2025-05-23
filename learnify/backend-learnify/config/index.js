@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 module.exports={
-    PORT : process.env.PORT,
+    PORT : process.env.PORT || 5000,
     DB_URL : process.env.DB_URL,
     PREFIX : process.env.PREFIX  || "/v1",
     jwt : {

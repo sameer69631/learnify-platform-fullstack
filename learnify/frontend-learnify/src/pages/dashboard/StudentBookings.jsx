@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import bookingApi from '../../apiManager/BookingApi'
 import useUserStore from '../../store/userStore'
 import { useNavigate } from 'react-router-dom'
+import StudentBookingsCard from '../../components/StudentBookingsCard'
 
 function StudentBookings() {
   const [upcomingClasses, setUpcomingClasses] = useState([])
@@ -33,7 +34,7 @@ function StudentBookings() {
             <button className={`ml-auto border px-4 py-1 rounded-md hover:bg-yellow-500 hover:text-white`} onClick={() => navigate("/all-mentors")}>Book New Class</button>
           </div>
 
-          <BookingCard bookings={isUpcomingClasses ? upcomingClasses : pastClasses} />
+          <StudentBookingsCard bookings={isUpcomingClasses ? upcomingClasses : pastClasses} />
         </div>
       </Dashboard>
     </div>

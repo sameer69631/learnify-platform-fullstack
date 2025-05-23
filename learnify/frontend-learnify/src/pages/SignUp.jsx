@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
-import auth from "../apiManager/auth"
+import auth from "../apiManager/AuthApi"
 import toast from 'react-hot-toast';
 
 function SignUp() {

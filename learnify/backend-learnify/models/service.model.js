@@ -1,6 +1,5 @@
 const {Schema, model} = require('mongoose');
 const { type } = require('../validations/user.validations');
-const { required } = require('joi');
 
 const serviceSchema = new Schema({
     mentor : {

@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form'
 import { message } from 'antd'
 import useUserStore from '../store/userStore'
 import AxiosInstances from '../apiManager'
-import auth from '../apiManager/auth'
+import auth from '../apiManager/AuthApi'
 import { setToken } from '../helper'
 import toast from 'react-hot-toast'
 

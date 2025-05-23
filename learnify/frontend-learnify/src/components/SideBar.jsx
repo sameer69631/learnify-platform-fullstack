@@ -24,11 +24,9 @@ function SideBar() {
           <div>
             <NavLink to={"/dashboard/services"}><p className='hover:bg-yellow-300 text-xl text-black text-center rounded-md w-full border-2 border-green-200 py-1 px-2 mt-3'>Services</p></NavLink>
 
-            <NavLink to={"/dashboard/services"}><p className='hover:bg-yellow-300 text-xl text-black text-center rounded-md w-full border-2 border-green-200 py-1 px-2 mt-3'>Shedule</p></NavLink>
-
             <NavLink to={"/dashboard/bookings"}><p className='hover:bg-yellow-300 text-xl text-black text-center rounded-md w-full border-2 border-green-200 py-1 px-2 mt-3'>Bookings</p></NavLink>
 
-            <NavLink to={"/dashboard/services"}><p className='hover:bg-yellow-300 text-xl text-black text-center rounded-md w-full border-2 border-green-200 py-1 px-2 mt-3'>Payments</p></NavLink>
+            <NavLink to={"/dashboard/paymentsInfo"}><p className='hover:bg-yellow-300 text-xl text-black text-center rounded-md w-full border-2 border-green-200 py-1 px-2 mt-3'>Payments</p></NavLink>
           </div>
         )}
       </div>

@@ -21,7 +21,7 @@ const bookingsSchema = new Schema({
         required : true
     },
     date : {
-        type : Schema.Types.Date,
+        type : Schema.Types.String,
         required : true
     },
     time : {

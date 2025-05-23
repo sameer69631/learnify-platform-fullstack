@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { AiOutlineCalendar } from 'react-icons/ai'
 import { FaRupeeSign } from 'react-icons/fa'
 import { Modal, Form, DatePicker, Select, Button } from 'antd'
+import useUserStore from '../store/userStore'
 
 import dayjs from 'dayjs'
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
@@ -11,6 +12,7 @@ dayjs.extend(isSameOrBefore)
 function BookingCard({ services }) {
     const [isBooking, setIsBooking] = useState(false)
     const [selectedService, setSelectedService] = useState(null)
+    const {user} = useUserStore()
     const navigate = useNavigate()
 
     const [form] = Form.useForm();
@@ -40,6 +42,10 @@ function BookingCard({ services }) {
     const handelBookingPayment = (values) => {
         navigate("/paymentsPage", {
             state : {
+                mentorId : selectedService.mentor,
+                serviceId : selectedService._id,
+                studentId : user._id,
+                studentName : user.name,
                 serviceName : selectedService?.serviceName,
                 price : selectedService?.price,
                 date : values.bookingDate,
@@ -49,7 +55,6 @@ function BookingCard({ services }) {
     }
 
     const timeSlots = generateTimeSlot(selectedService?.startTime, selectedService?.endTime, selectedService?.duration)
-
     return (
         <div className='flex flex-wrap justify-center'>
             {services?.map((data) => <div className='group flex flex-col justify-evenly max-w-md px-3 py-3 m-4 shadow-lg rounded-xl'>

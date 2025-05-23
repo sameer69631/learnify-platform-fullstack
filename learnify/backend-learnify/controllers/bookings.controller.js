@@ -2,13 +2,12 @@ const bookingService = require('../services/bookings.service')
 const ApiError = require('../helper/apiError');
 const httpStatus = require('../utils/httpStatus');
 
-const addBookings = async (req, res, next) => {
-    const bookingData = req.body;
-    if(!bookingData){
-        return next(new ApiError(httpStatus.badRequest, "Required credentials are not found"))
+const addBookings = async (bookingPayload) => {
+    if(!bookingPayload){
+        return new ApiError(httpStatus.badRequest, "Required credentials are not found")
     }
-    const addedBookingData = await bookingService.addBookings(bookingData);
-    res.status(httpStatus.ok).json({message : "Booking created successfully", addedBookingData})
+    const addedBookingData = await bookingService.addBookings(bookingPayload);
+    return {status : httpStatus.ok, addedBookingData}
 }
 
 const getBookingsByMentorId = async (req, res, next) => {
