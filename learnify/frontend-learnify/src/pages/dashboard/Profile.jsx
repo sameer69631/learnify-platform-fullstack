@@ -159,19 +159,19 @@ function Profile() {
             </Form.Item>}
 
             <Form.Item label="Linkedin" name={["social", "linkedin"]}>
-              <Input placeholder='Enter LinkedIn Url' />
+              <Input placeholder='Enter LinkedIn Url Followed by https://' />
             </Form.Item>
-            <Form.Item label="GitHub" name={["social, github"]}>
-              <Input placeholder='Enter GitHub Url' />
+            <Form.Item label="GitHub" name={["social", "github"]}>
+              <Input placeholder='Enter GitHub Url Followed by https://' />
             </Form.Item>
-            <Form.Item label="Twitter" name={["social, twitter"]}>
-              <Input placeholder='Enter Twitter Url' />
+            <Form.Item label="Twitter" name={["social", "twitter"]}>
+              <Input placeholder='Enter Twitter Url Followed by https://' />
             </Form.Item>
-            <Form.Item label="Facebook" name={["social, facebook"]}>
-              <Input placeholder='Enter Facebook Url' />
+            <Form.Item label="Facebook" name={["social", "facebook"]}>
+              <Input placeholder='Enter Facebook Url Followed by https://' />
             </Form.Item>
-            <Form.Item label="Instagram" name={["social, instagram"]}>
-              <Input placeholder='Enter Instagram Url' />
+            <Form.Item label="Instagram" name={["social", "instagram"]}>
+              <Input placeholder='Enter Instagram Url Followed by https://' />
             </Form.Item>
 
             <Form.Item>
