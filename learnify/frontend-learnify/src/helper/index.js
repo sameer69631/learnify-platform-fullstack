@@ -1,15 +1,15 @@
 import {TOKEN} from '../const/index'
 
 const setToken=(token)=>{
-    return sessionStorage.setItem(TOKEN,JSON.stringify(token))
+    return localStorage.setItem(TOKEN,JSON.stringify(token))
 }
 
 const getToken=()=>{
-    return sessionStorage.getItem(TOKEN)
+    return localStorage.getItem(TOKEN)
 }
 
 const removeToken =()=>{
-    return sessionStorage.removeItem(TOKEN)
+    return localStorage.removeItem(TOKEN)
 }
 
 export {getToken, setToken, removeToken}
