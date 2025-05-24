@@ -53,10 +53,12 @@ function MentorSessions() {
   }
 
   return (
-    <div>
-      <DashboardNavBar />
+    <div className='max-w-screen-2xl h-screen mx-auto'>
+      <div className='sticky top-0 z-50'>
+        <DashboardNavBar />
+      </div>
       <div className='md:flex max-w-screen-2xl h-screen mx-auto'>
-        <div className='flex flex-col justify-evenly md:w-1/4 p-5'>
+        <div className='flex flex-col gap-8 md:w-1/4 p-5 mt-4'>
           <Spin spinning={loading}>
             <div className='flex justify-center'>
               <Avatar size={150}

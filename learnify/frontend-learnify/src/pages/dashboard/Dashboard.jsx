@@ -4,9 +4,11 @@ import SideBar from '../../components/SideBar'
 
 function Dashboard({children}) {
   return (
-    <div>
-      <DashboardNavBar/>
-      <div className='flex'>
+    <div className='bg-green-50'>
+      <div className='max-w-screen-xl mx-auto sticky top-0 z-50'>
+        <DashboardNavBar/>
+      </div>
+      <div className='md:flex'>
         <SideBar/>
         <main className='flex-1'>{children}</main>
       </div>

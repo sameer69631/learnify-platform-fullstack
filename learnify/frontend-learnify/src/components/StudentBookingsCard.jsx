@@ -2,6 +2,7 @@ import React from 'react'
 import { FaPhone, FaEdit, FaRupeeSign } from 'react-icons/fa'
 
 function StudentBookingsCard({ bookings }) {
+    
     return (
         <div className='flex flex-wrap'>
             {bookings.map((booking, index) => <div key={index} className='max-w-sm p-5 m-4 shadow-lg rounded-lg'>

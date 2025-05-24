@@ -98,7 +98,7 @@ function PaymentPage() {
           <label htmlFor="mobile-number">Enter Mobile Number</label>
           <input type="tel" id='mobile-number' maxLength={10}
             className='border px-4 py-1 w-full rounded'
-            onClick={(e) => setMobileNumber(e.target.value)}
+            onChange={(e) => setMobileNumber(e.target.value)}
             placeholder='Enter 10-digit mobile number'
           />
         </div>

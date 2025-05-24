@@ -55,15 +55,22 @@ function TopMentors() {
     fetchAllMentors();
   }, [])
 
+  const generateAvatarUrl = (name) => {
+    const initials = name.split(" ").map((word) => word.charAt(0).toUpperCase()).join("");
+    return `https:ui-avatars.com/api/?name=${initials}`
+  }
+
   return (
     <div>
       <div className='flex flex-wrap gap-5'>
         <Spin spinning={loading}/>
         {topMentors.map((mentor) => (
           <div className='text-center'>
-            <Avatar size={180} onClick={(e) => handelMentorLogoClick(e, mentor._id)}>
-              <p className='text-[5em]'>{mentor?.name.split(" ").map((data) => data[0].toUpperCase()).join("")}</p>
-            </Avatar>
+            <Avatar onClick={(e) => handelMentorLogoClick(e, mentor._id)}
+              size={180}
+              src={mentor?.photoUrl || generateAvatarUrl(mentor?.name || "User")}
+              className="border-4 border-green-300 shadow-lg cursor-pointer transform hover:scale-110 transition-all"
+            />
             <p className='mt-2'>{mentor.name.toUpperCase()}</p>
           </div>
         ))}

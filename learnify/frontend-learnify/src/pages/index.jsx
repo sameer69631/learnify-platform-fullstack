@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Nav from '/src/components/Nav'
 import { NavLink } from 'react-router-dom'
 import FeaturesCard from '../components/FeaturesCard'
 import TopMentors from '../components/TopMentors'
+import { AiFillLinkedin, AiFillGithub, AiFillTwitterCircle, AiFillFacebook, AiFillInstagram } from 'react-icons/ai'
 
 function Home() {
+
     const featureCardData = [
         {
             title: "Expert Career Guidance",
@@ -18,7 +20,7 @@ function Home() {
         },
         {
             title: "Affordable and Flexible",
-            description: "ElevateHub ensures that mentorship is accessible to all. Choose flexible and affordable mentoring sessions that fit your budget and schedule.",
+            description: "Learnify ensures that mentorship is accessible to all. Choose flexible and affordable mentoring sessions that fit your budget and schedule.",
             path: "/Affordable and Flexible"
         },
         {
@@ -33,19 +35,21 @@ function Home() {
         },
         {
             title: "Global Mentorship Opportunities",
-            description: "With ElevateHub, you can connect with mentors from across the globe. Gain diverse perspectives and expand your horizons with international opportunities.",
+            description: "With Learnify, you can connect with mentors from across the globe. Gain diverse perspectives and expand your horizons with international opportunities.",
             path: "/Global Mentorship Opportunities"
         },
     ]
-    
+
     return (
         <div>
-            <Nav />
+            <div className='sticky top-0 z-50'>
+                <Nav />
+            </div>
 
             <div className="bg-white">
                 {/* hero section */}
                 <section className='relative bg-green-100 py-10'>
-                    <div className='max-w-6xl mx-auto flex flex-col gap-5 md:flex-row items-center'>
+                    <div className='max-w-screen-xl mx-auto flex flex-col gap-5 md:flex-row items-center rounded-xl shadow-xl p-8'>
                         {/* text part */}
                         <div className='md:w-1/2 text-center md:text-left'>
                             <h1 className='font-extrabold text-green-800 text-4xl'><span className='font-extrabold text-green-900 text-6xl'>Learnify:</span><br />
@@ -61,19 +65,17 @@ function Home() {
                         {/* image part */}
                         <div className='md:w-1/2 relative'>
                             <img className='rounded-md'
-                                src="\src\assets\students.png" alt="mentor hub image" />
-                            {/* Decorative Elements */}
-                            {/* <div className="absolute inset-0 bg-green-400 bg-opacity-10 rounded-lg animate-pulse duration-700"></div> */}
+                                src="/assets/students.png" alt="mentor hub image" />
                         </div>
                     </div>
                 </section>
 
                 {/* About section */}
                 <section className='relative bg-white py-10 px-6'>
-                    <div className='max-w-6xl mx-auto flex flex-col md:flex-row items-center'>
+                    <div className='max-w-screen-xl mx-auto flex flex-col md:flex-row items-center'>
                         {/* image part */}
                         <div className='md:w-1/2 '>
-                            <img className='lg:h-100 object-cover rounded-lg' src="src/assets/mentor.png" alt="mentor image in about section" />
+                            <img className='lg:h-100 object-cover rounded-lg' src="/assets/mentor.png" alt="mentor image in about section" />
 
                         </div>
 
@@ -120,15 +122,15 @@ function Home() {
                 </section>
 
                 {/* How it works section */}
-                <section className='relative bg-[#f3f4f6] py-10 mt-10'>
-                    <div className='max-w-screen-xl mx-auto flex flex-col items-center'>
+                <section className='relative bg-green-100 py-10 mt-10'>
+                    <div className='max-w-screen-xl mx-auto flex flex-col items-center rounded-xl shadow-xl p-8'>
                         <div className='text-center'>
                             <h1 className='font-bold text-4xl p-3'>Start Your Mentorship Journey with Learnify</h1>
                             <p className='text-lg p-3 text-gray-700'>Join Learnify today and connect with mentors who can guide you towards your goals. Follow our easy steps to start achieving more with personalized mentorship.</p>
                         </div>
                         <div className='flex flex-col lg:flex-row mt-5'>
                             <div className='lg:w-1/2'>
-                                <img className='lg:h-[100%] object-cover rounded-lg' src="src/assets/studentsCareerPlanning.png" alt="mentor mentee image" />
+                                <img className='lg:h-[100%] object-cover rounded-lg' src="/assets/studentsCareerPlanning.png" alt="mentor mentee image" />
                             </div>
                             <div className='lg:w-1/2 ml-4'>
                                 <div className='flex'>
@@ -183,7 +185,7 @@ function Home() {
 
                 {/* Mentor section */}
                 <section className='relative bg-[#f3f4f6] py-10 px-6'>
-                    <div className='max-w-screen-xl mx-auto lg:flex items-center'>
+                    <div className='max-w-screen-xl mx-auto lg:flex justify-center'>
                         <div className='lg:max-w-1/3'>
                             <h1 className='font-extrabold text-4xl text-green-600 leading-tight'>Find the Right Mentor for You</h1>
                             <p className='text-lg text-gray-700 mt-2'>Unlock growth opportunities with expert mentors. Whether you're aiming to boost your career, enhance your skills, or explore new fields, Learnify has the perfect mentor for you.</p>
@@ -217,18 +219,18 @@ function Home() {
                             ))}
                         </div>
                     </div>
-                    <div className='max-w-screen-xl mx-auto mt-4'>
+                    <div className='max-w-screen-xl mx-auto mt-4 shadow-xl shadow-green-100'>
                         <img className='object-cover rounded-lg h-130 w-full'
-                            src="\src\assets\StudentsImage.png" alt="student image" />
+                            src="/assets/StudentsImage.png" alt="student image" />
                     </div>
                 </section>
 
                 {/* Top Mentors */}
                 <section className='relative bg-white py-10'>
-                    <div className='max-w-screen-xl mx-auto lg:flex flex-col items-center'>
+                    <div className='max-w-screen-xl mx-auto lg:flex flex flex-col items-center rounded-xl shadow-xl p-8'>
                         <h1 className='text-4xl font-bold text-green-600 mb-4'>Top Mentors</h1>
                         <div className='flex flex-wrap'>
-                            <TopMentors/>
+                            <TopMentors />
                         </div>
                     </div>
                 </section>
@@ -268,7 +270,23 @@ function Home() {
                             <h5 className='p-2 text-xl mb-2'>Stay Connected</h5>
                             <p className='text-gray-500 text-sm'>Follow us on social media for updates, inspiration, and mentorship tips!</p>
                             <div className='p-3 flex flex-wrap justify-center mt-2'>
-                                logos
+                                <div className='flex justify-evenly'>
+                                    <a href={"/#"} target='_blank'>
+                                        <AiFillLinkedin className='text-4xl' />
+                                    </a>
+                                    <a href={"/#"} target='_blank'>
+                                        <AiFillGithub className='text-4xl' />
+                                    </a>
+                                    <a href={"/#"} target='_blank'>
+                                        <AiFillTwitterCircle className='text-4xl' />
+                                    </a>
+                                    <a href={"/#"} target='_blank'>
+                                        <AiFillFacebook className='text-4xl' />
+                                    </a>
+                                    <a href={"/#"} target='_blank'>
+                                        <AiFillInstagram className='text-4xl' />
+                                    </a>
+                                </div>
                             </div>
                             <p className='mt-2 text-gray-500'>&copy; 2024 MentorHub. All Rights Reserved.</p>
                         </div>

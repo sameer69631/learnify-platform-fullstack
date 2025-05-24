@@ -11,9 +11,7 @@ function PaymentsInfo() {
   useEffect(() => {
     const getPaymentsData = async () => {
       try {
-        console.log("entered try block")
         const response = await paymentApi.getPaymentsByMentorId(user._id)
-        console.log(response)
         setPaymentData(response.data.payments)
       }
       catch (err) {
