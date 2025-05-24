@@ -15,7 +15,10 @@ function AllMentors() {
 
   const handelMentorLogoClick = (e, mentorId) => {
     e.preventDefault();
-    if(user.role === "student"){
+    if(!user){
+      toast.error("Oops! Please sign in before continuing")
+    }
+    if(user?.role === "student"){
       setMentorId(mentorId)
       navigate("/MentorSessions")
     }
@@ -45,13 +48,13 @@ function AllMentors() {
   }
 
   return (
-    <div className='max-w-screen-xl px-6 py-3'>
+    <div className='max-w-screen-xl mx-auto px-6 py-3'>
       <div className='text-center'>
         <h1 className='text-4xl text-green-700 font-bold p-4'>Select Mentor</h1>
         <Spin spinning={loading} />
         <div className='flex flex-wrap gap-5 mt-4'>
-          {allMentors.map((mentor) => (
-            <div className='text-center'>
+          {allMentors.map((mentor, index) => (
+            <div key={index} className='text-center'>
               <Avatar size={180} src={mentor?.photoUrl || generateProfileUrl(mentor)} onClick={(e) => handelMentorLogoClick(e, mentor._id)}/>
               <p className='mt-2'>{mentor.name.toUpperCase()}</p>
             </div>

@@ -5,6 +5,7 @@ import { Avatar, Button, Spin } from 'antd'
 import { useNavigate } from 'react-router-dom';
 import useMentorIdForSessionsStore from '../store/mentorIdForSessions';
 import useUserStore from '../store/userStore';
+import toast from 'react-hot-toast';
 
 function TopMentors() {
   const [topMentors, setTopMentors] = useState([]);
@@ -16,7 +17,10 @@ function TopMentors() {
 
   const handelMentorLogoClick = (e, mentorId) => {
     e.preventDefault();
-    if(user.role === "student"){
+    if(!user){
+      toast.error("Oops! Please sign in before continuing")
+    }
+    if(user?.role === "student"){
       setMentorId(mentorId)
       navigate("/MentorSessions")
     }
@@ -64,8 +68,8 @@ function TopMentors() {
     <div>
       <div className='flex flex-wrap gap-5'>
         <Spin spinning={loading}/>
-        {topMentors.map((mentor) => (
-          <div className='text-center'>
+        {topMentors.map((mentor, index) => (
+          <div key={index} className='text-center'>
             <Avatar onClick={(e) => handelMentorLogoClick(e, mentor._id)}
               size={180}
               src={mentor?.photoUrl || generateAvatarUrl(mentor?.name || "User")}

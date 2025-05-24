@@ -1,12 +1,11 @@
-import React from 'react'
-import DashboardNavBar from '../../components/DashboardNavBar'
 import SideBar from '../../components/SideBar'
+import Nav from '../../components/Nav'
 
 function Dashboard({children}) {
   return (
     <div className='bg-green-50'>
       <div className='max-w-screen-xl mx-auto sticky top-0 z-50'>
-        <DashboardNavBar/>
+        <Nav/>
       </div>
       <div className='md:flex'>
         <SideBar/>
