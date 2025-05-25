@@ -21,7 +21,7 @@ function App() {
   if(!isBackendReady){
     return (
       <div className='h-screen flex justify-center items-center shadow-xl rounded-xl'>
-        <Spin size="large"><p className='text-4xl'>Loading the server...</p></Spin>
+        <Spin size="large"><p className='text-4xl'>Booting up the server...</p></Spin>
       </div>
     )
   }

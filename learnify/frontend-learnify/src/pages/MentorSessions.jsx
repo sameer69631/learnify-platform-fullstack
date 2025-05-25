@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import useMentorIdForSessionsStore from '../store/mentorIdForSessions'
+import Nav from '../components/Nav'
 import serviceApi from '../apiManager/ServiceApi'
 import BookingCard from '../components/BookingCard'
-import DashboardNavBar from '../components/DashboardNavBar'
 import toast from 'react-hot-toast'
 import mentorApi from '../apiManager/mentorApi'
 import { Avatar, Spin } from 'antd'
@@ -55,7 +55,7 @@ function MentorSessions() {
   return (
     <div className='max-w-screen-2xl h-screen mx-auto'>
       <div className='sticky top-0 z-50'>
-        <DashboardNavBar />
+        <Nav />
       </div>
       <div className='md:flex max-w-screen-2xl h-screen mx-auto'>
         <div className='flex flex-col gap-8 md:w-1/4 p-5 mt-4'>
