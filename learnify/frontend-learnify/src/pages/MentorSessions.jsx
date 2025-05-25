@@ -71,7 +71,7 @@ function MentorSessions() {
           <div className='flex flex-col justify-center gap-2 items-center space-y-2'>
             <h3 className='text-green-700 text-2xl tect-center'>{mentor?.name.split(" ").map((data) => data[0].toUpperCase() + data.slice(1)).join(" ")}</h3>
             <h3 className='flex gap-2 items-center tect-center'><AiOutlineUser />Title : {mentor?.profile?.title}</h3>
-            <h3>Skills : {mentor?.profile?.tags.map((data) => <span className='bg-gray-200 p-1 rounded-xl mx-1 tect-center'>{data}</span>)}</h3>
+            <h3>Skills : {mentor?.profile?.tags.map((data, index) => <span key={index} className='bg-gray-200 p-1 rounded-xl mx-1 tect-center'>{data}</span>)}</h3>
             <h3 className='text-center'>Bio : {mentor?.profile?.bio}</h3>
             <h3 className='text-center'>College : {mentor?.profile?.college}</h3>
           </div>

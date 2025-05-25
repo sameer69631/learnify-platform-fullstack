@@ -5,7 +5,7 @@ const getAllMentors = async () => {
 };
 
 const getMentorById = async (id) => {
-    return await userModel.findOne({id : id, role : "mentor"})
+    return await userModel.findOne({_id : id, role : "mentor"})
 }
 
 const getMentorByUserName = async (userName) => {

@@ -95,8 +95,8 @@ function Profile() {
           <h3 className='text-green-700 text-2xl'>{mentorData?.name.split(" ").map((data) => data[0].toUpperCase()+data.slice(1)).join(" ")}</h3>
           <h3 className='flex gap-2 items-center'><AiOutlineMail />{mentorData?.email}</h3>
           {mentorData.role == "mentor" && <h3 className='flex gap-2 items-center'><AiOutlineUser />Title : {mentorData?.profile?.title}</h3>}
-          <h3>Skills : {mentorData?.profile?.tags.map((data) => <span className='bg-gray-200 p-1 rounded-xl mx-1'>{data}</span>)}</h3>
-          <h3>Bio : {mentorData?.profile?.bio}</h3>
+          <h3 className='flex'>Skills: <span>{mentorData?.profile?.tags.map((data, index) => <span key={index}>{data}, </span>)}</span></h3>
+          <h3 className='flex'>Bio: <span>{mentorData?.profile?.bio}</span></h3>
           {mentorData.role == "mentor" && <h3>College : {mentorData?.profile?.college}</h3>}
           <h1 className='text-yellow-300 text-3xl font-semibold mt-4'>Connect With Me</h1>
         </div>

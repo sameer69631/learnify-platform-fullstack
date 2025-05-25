@@ -57,7 +57,7 @@ function BookingCard({ services }) {
     const timeSlots = generateTimeSlot(selectedService?.startTime, selectedService?.endTime, selectedService?.duration)
     return (
         <div className='flex flex-wrap justify-center'>
-            {services?.map((data) => <div className='group flex flex-col justify-evenly max-w-md px-3 py-3 m-4 shadow-lg rounded-xl'>
+            {services?.map((data, index) => <div key={index} className='group flex flex-col justify-evenly max-w-md px-3 py-3 m-4 shadow-lg rounded-xl'>
                 <h1 className='text-xl font-bold py-2'>{data.serviceName}</h1>
                 <h1>{data.description}</h1>
                 <div className='mt-1 mb-1'>
