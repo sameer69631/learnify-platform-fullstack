@@ -14,6 +14,17 @@ function Services() {
     const [isLoading, setIsLoading] = useState(false)
     const { user: mentor } = useUserStore()
 
+    const [form] = Form.useForm()
+    // useEffect insteat initial values of form to handle dynamic data
+    useEffect(() => {
+        if(editingService){
+            form.setFieldsValue(editingService)
+        }
+        else{
+            form.resetFields();
+        }
+    },[editingService])
+
     useEffect(() => {
         const fetchServices = async () => {
             try {
@@ -115,10 +126,11 @@ function Services() {
                 </Spin>
 
                 <Modal title={editingService ? "Edit Service" : "Create New Service"} open={isModalActive} onCancel={() => {
+                    form.resetFields();
                     setEditingService(null);
                     setIsModalActive(false);
                 }} footer={null}>
-                    <Form initialValues={editingService && editingService} onFinish={editingService ? handelEditService : handleCreateService} layout='vertical'>
+                    <Form form={form} onFinish={editingService ? handelEditService : handleCreateService} layout='vertical'>
                         <Form.Item label="Service Name" name={"serviceName"} rules={[{ required: true, message: "Service name is required" }]}>
                             <Input placeholder="Enter service name" />
                         </Form.Item>

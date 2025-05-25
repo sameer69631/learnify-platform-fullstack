@@ -73,7 +73,7 @@ function Profile() {
     <div className='flex flex-col items-center w-full min-h-screen p-10 bg-gradient-to-r from-green-100 to-green-50'>
       {/* profile */}
       <div className="flex flex-col w-full max-w-5xl p-8 space-y-10 bg-white shadow-xl rounded-3xl">
-        <h1 className='text-yellow-600 text-4xl font-bold text-center'>My Profile</h1>
+        <h1 className='text-green-700 text-4xl font-semibold text-center'>My Profile - <span>{mentorData?.role.toUpperCase()}</span></h1>
 
         <Spin spinning={loading}>
           <div className='flex justify-center'>

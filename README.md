@@ -2,6 +2,15 @@
 
 A fullstack web app where users can book sessions with mentors, and mentors can manage their profiles, services, bookings, and payments through their personalized dashboards.
 
+## 📽️ Demo Video
+
+![Dashboard Preview](./learnify/frontend-learnify/public/assets/Learnify-screenShot.jpg)
+
+Watch the demo - https://youtu.be/FoZGHE38gnY
+
+This video showcases the core features of the Learnify platform, including secured login, course browsing, and Razorpay integration.
+
+
 ---
 
 ## 🌐 Live Demo
