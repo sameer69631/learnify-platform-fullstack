@@ -58,128 +58,133 @@ This video showcases the core features of the Learnify platform, including secur
 
 ## 📁 Folder Structure
 
-┣ 📂backend-learnify
-┃ ┣ 📂config
-┃ ┃ ┣ 📜db.js
-┃ ┃ ┗ 📜index.js
-┃ ┣ 📂controllers
-┃ ┃ ┣ 📜auth.controller.js
-┃ ┃ ┣ 📜bookings.controller.js
-┃ ┃ ┣ 📜mentor.controller.js
-┃ ┃ ┣ 📜mentorService.controller.js
-┃ ┃ ┣ 📜payment.controller.js
-┃ ┃ ┗ 📜user.controller.js
-┃ ┣ 📂helper
-┃ ┃ ┣ 📜apiError.js
-┃ ┃ ┗ 📜asyncHandler.js
-┃ ┣ 📂middleware
-┃ ┃ ┣ 📜auth.js
-┃ ┃ ┗ 📜validate.js
-┃ ┣ 📂models
-┃ ┃ ┣ 📜bookings.model.js
-┃ ┃ ┣ 📜payments.model.js
-┃ ┃ ┣ 📜service.model.js
-┃ ┃ ┗ 📜user.model.js
-┃ ┣ 📂routes
-┃ ┃ ┗ 📂v1
-┃ ┃   ┣ 📜auth.route.js
-┃ ┃   ┣ 📜booking.route.js
-┃ ┃   ┣ 📜home.route.js
-┃ ┃   ┣ 📜index.js
-┃ ┃   ┣ 📜mentor.route.js
-┃ ┃   ┣ 📜payment.route.js
-┃ ┃   ┣ 📜service.route.js
-┃ ┃   ┗ 📜user.routes.js
-┃ ┣ 📂services
-┃ ┃ ┣ 📜auth.service.js
-┃ ┃ ┣ 📜bookings.service.js
-┃ ┃ ┣ 📜mentor.servive.js
-┃ ┃ ┣ 📜mentorService.service.js
-┃ ┃ ┣ 📜payments.service.js
-┃ ┃ ┣ 📜token.service.js
-┃ ┃ ┗ 📜user.service.js
-┃ ┣ 📂uploads
-┃ ┃ ┣ 📜1747169567811-photo.jpg
-┃ ┃ ┗ 📜1747466140040-photo.png
-┃ ┣ 📂utils
-┃ ┃ ┣ 📜httpStatus.js
-┃ ┃ ┗ 📜multer.js
-┃ ┣ 📂validations
-┃ ┃ ┣ 📜auth.validations.js
-┃ ┃ ┣ 📜service.validations.js
-┃ ┃ ┗ 📜user.validations.js
-┃ ┣ 📜.env
-┃ ┣ 📜.gitignore
-┃ ┣ 📜app.js
-┃ ┣ 📜index.js
-┃ ┗ 📜package.json
-┣ 📂frontend-learnify
-┃ ┣ 📂public
-┃ ┃ ┗ 📂assets
-┃ ┃   ┣ 📜onlineStudy.png
-┃ ┃   ┣ 📜phone_enabled_33dp_0000F5_FILL0_wght400_GRAD0_opsz40.svg
-┃ ┃   ┣ 📜students.png
-┃ ┃   ┣ 📜studentsCareerPlanning.png
-┃ ┃   ┣ 📜StudentsImage.png
-┃ ┃   ┗ 📜trophy.png
-┃ ┣ 📂src
-┃ ┃ ┣ 📂apiManager
-┃ ┃ ┃ ┣ 📜AuthApi.jsx
-┃ ┃ ┃ ┣ 📜BookingApi.jsx
-┃ ┃ ┃ ┣ 📜index.jsx
-┃ ┃ ┃ ┣ 📜mentorApi.jsx
-┃ ┃ ┃ ┣ 📜PaymentApi.jsx
-┃ ┃ ┃ ┣ 📜ServiceApi.jsx
-┃ ┃ ┃ ┗ 📜UserApi.jsx
-┃ ┃ ┣ 📂components
-┃ ┃ ┃ ┣ 📜BookingCard.jsx
-┃ ┃ ┃ ┣ 📜BookingsTable.jsx
-┃ ┃ ┃ ┣ 📜FeaturesCard.jsx
-┃ ┃ ┃ ┣ 📜Nav.jsx
-┃ ┃ ┃ ┣ 📜ProfileSideBar.jsx
-┃ ┃ ┃ ┣ 📜ProtectedRoute.jsx
-┃ ┃ ┃ ┣ 📜ServicesCard.jsx
-┃ ┃ ┃ ┣ 📜SideBar.jsx
-┃ ┃ ┃ ┣ 📜StudentBookingsCard.jsx
-┃ ┃ ┃ ┗ 📜TopMentors.jsx
-┃ ┃ ┣ 📂const
-┃ ┃ ┃ ┣ 📜env.const.js
-┃ ┃ ┃ ┗ 📜index.jsx
-┃ ┃ ┣ 📂helper
-┃ ┃ ┃ ┗ 📜index.js
-┃ ┃ ┣ 📂pages
-┃ ┃ ┃ ┣ 📂dashboard
-┃ ┃ ┃ ┃ ┣ 📜Bookings.jsx
-┃ ┃ ┃ ┃ ┣ 📜Dashboard.jsx
-┃ ┃ ┃ ┃ ┣ 📜PaymentsInfo.jsx
-┃ ┃ ┃ ┃ ┣ 📜Profile.jsx
-┃ ┃ ┃ ┃ ┣ 📜Services.jsx
-┃ ┃ ┃ ┃ ┗ 📜StudentBookings.jsx
-┃ ┃ ┃ ┣ 📜AllMentors.jsx
-┃ ┃ ┃ ┣ 📜index.jsx
-┃ ┃ ┃ ┣ 📜MentorSessions.jsx
-┃ ┃ ┃ ┣ 📜PaymentPage.jsx
-┃ ┃ ┃ ┣ 📜SignIn.jsx
-┃ ┃ ┃ ┗ 📜SignUp.jsx
-┃ ┃ ┣ 📂routes
-┃ ┃ ┃ ┗ 📜userRoute.jsx
-┃ ┃ ┣ 📂store
-┃ ┃ ┃ ┣ 📜mentorIdForSessions.js
-┃ ┃ ┃ ┣ 📜mentorStore.js
-┃ ┃ ┃ ┗ 📜userStore.js
-┃ ┃ ┣ 📜App.css
-┃ ┃ ┣ 📜App.jsx
-┃ ┃ ┣ 📜index.css
-┃ ┃ ┗ 📜main.jsx
-┃ ┣ 📜.env
-┃ ┣ 📜.gitignore
-┃ ┣ 📜eslint.config.js
-┃ ┣ 📜index.html
-┃ ┣ 📜package.json
-┃ ┣ 📜README.md
-┃ ┣ 📜vercel.json
-┃ ┗ 📜vite.config.js
-┗ 📜README.md
+```bash
+📂backend-learnify
+├── 📂config
+│   ├── 📜db.js
+│   └── 📜index.js
+├── 📂controllers
+│   ├── 📜auth.controller.js
+│   ├── 📜bookings.controller.js
+│   ├── 📜mentor.controller.js
+│   ├── 📜mentorService.controller.js
+│   ├── 📜payment.controller.js
+│   └── 📜user.controller.js
+├── 📂helper
+│   ├── 📜apiError.js
+│   └── 📜asyncHandler.js
+├── 📂middleware
+│   ├── 📜auth.js
+│   └── 📜validate.js
+├── 📂models
+│   ├── 📜bookings.model.js
+│   ├── 📜payments.model.js
+│   ├── 📜service.model.js
+│   └── 📜user.model.js
+├── 📂routes
+│   └── 📂v1
+│       ├── 📜auth.route.js
+│       ├── 📜booking.route.js
+│       ├── 📜home.route.js
+│       ├── 📜index.js
+│       ├── 📜mentor.route.js
+│       ├── 📜payment.route.js
+│       ├── 📜service.route.js
+│       └── 📜user.routes.js
+├── 📂services
+│   ├── 📜auth.service.js
+│   ├── 📜bookings.service.js
+│   ├── 📜mentor.servive.js
+│   ├── 📜mentorService.service.js
+│   ├── 📜payments.service.js
+│   ├── 📜token.service.js
+│   └── 📜user.service.js
+├── 📂uploads
+│   ├── 📜1747169567811-photo.jpg
+│   └── 📜1747466140040-photo.png
+├── 📂utils
+│   ├── 📜httpStatus.js
+│   └── 📜multer.js
+├── 📂validations
+│   ├── 📜auth.validations.js
+│   ├── 📜service.validations.js
+│   └── 📜user.validations.js
+├── 📜.env
+├── 📜.gitignore
+├── 📜app.js
+├── 📜index.js
+└── 📜package.json
+
+📂frontend-learnify
+├── 📂public
+│   └── 📂assets
+│       ├── 📜onlineStudy.png
+│       ├── 📜phone_enabled_33dp_0000F5_FILL0_wght400_GRAD0_opsz40.svg
+│       ├── 📜students.png
+│       ├── 📜studentsCareerPlanning.png
+│       ├── 📜StudentsImage.png
+│       └── 📜trophy.png
+├── 📂src
+│   ├── 📂apiManager
+│   │   ├── 📜AuthApi.jsx
+│   │   ├── 📜BookingApi.jsx
+│   │   ├── 📜index.jsx
+│   │   ├── 📜mentorApi.jsx
+│   │   ├── 📜PaymentApi.jsx
+│   │   ├── 📜ServiceApi.jsx
+│   │   └── 📜UserApi.jsx
+│   ├── 📂components
+│   │   ├── 📜BookingCard.jsx
+│   │   ├── 📜BookingsTable.jsx
+│   │   ├── 📜FeaturesCard.jsx
+│   │   ├── 📜Nav.jsx
+│   │   ├── 📜ProfileSideBar.jsx
+│   │   ├── 📜ProtectedRoute.jsx
+│   │   ├── 📜ServicesCard.jsx
+│   │   ├── 📜SideBar.jsx
+│   │   ├── 📜StudentBookingsCard.jsx
+│   │   └── 📜TopMentors.jsx
+│   ├── 📂const
+│   │   ├── 📜env.const.js
+│   │   └── 📜index.jsx
+│   ├── 📂helper
+│   │   └── 📜index.js
+│   ├── 📂pages
+│   │   ├── 📂dashboard
+│   │   │   ├── 📜Bookings.jsx
+│   │   │   ├── 📜Dashboard.jsx
+│   │   │   ├── 📜PaymentsInfo.jsx
+│   │   │   ├── 📜Profile.jsx
+│   │   │   ├── 📜Services.jsx
+│   │   │   └── 📜StudentBookings.jsx
+│   │   ├── 📜AllMentors.jsx
+│   │   ├── 📜index.jsx
+│   │   ├── 📜MentorSessions.jsx
+│   │   ├── 📜PaymentPage.jsx
+│   │   ├── 📜SignIn.jsx
+│   │   └── 📜SignUp.jsx
+│   ├── 📂routes
+│   │   └── 📜userRoute.jsx
+│   ├── 📂store
+│   │   ├── 📜mentorIdForSessions.js
+│   │   ├── 📜mentorStore.js
+│   │   └── 📜userStore.js
+│   ├── 📜App.css
+│   ├── 📜App.jsx
+│   ├── 📜index.css
+│   └── 📜main.jsx
+├── 📜.env
+├── 📜.gitignore
+├── 📜eslint.config.js
+├── 📜index.html
+├── 📜package.json
+├── 📜README.md
+├── 📜vercel.json
+└── 📜vite.config.js
+
+📜README.md
+```
+
 
 
 
